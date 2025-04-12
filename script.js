@@ -1,11 +1,15 @@
+const emoji=document.getElementById('emoji');
+const moodselector=document.getElementById('moodselector');
 
- const randomcolor=["#c4b1ae","#b4ada3","#bfb59e","#cab7a2","#858786"]
-
-const button =document.getElementById('btn');
-const reults=document.getElementById("result");
-
-button.addEventListener("click",()=>{
-    const color= randomcolor[Math.floor(Math.random()*randomcolor.length)];
-    document.body.style.backgroundColor=color;
-    reults.textContent=color;
+const moods={
+    happy: {emoji: "🙂", color: "yellow"},
+    angry: {emoji: "😡", color: "red"},
+    sad: {emoji: "😥", color: "lightblue"},
+    excited: {emoji: "😍", color: "orange"},
+    calm: {emoji: "😌", color: "lightgreen"}
+};
+moodselector.addEventListener('change',()=>{
+    const mood=moodselector.value;
+    emoji.textContent=moods[mood].emoji;
+    document.body.style.backgroundColor=moods[mood].color;
 })
